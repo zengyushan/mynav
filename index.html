@@ -379,17 +379,14 @@
         $(document).on('click', '.list li em', function () {
             let li = $(this).parent()
             let url = li.find('a').attr('href').substring(2) //获取a标签的href，并截取url
-            console.log(url)
             li.remove()
-            let newArr = []
+            //删掉数组中对应的这一个
             for (let i = 0; i < arr.length; i++) {
-                if (arr[i] !== url && newArr.indexOf(url) === -1) {
-                    newArr.push(arr[i])
+                if (arr[i] === url) {
+                    arr.splice(i, 1)
                 }
             }
-
-            console.log(newArr)
-            localStorage.setItem('urlTxt', JSON.stringify(newArr.duplicate())) //将网址数组存进缓存
+            localStorage.setItem('urlTxt', JSON.stringify(arr.duplicate())) //将网址数组存进缓存
         })
         function setLiHtml(urlTxt) {
             let html = ''
