@@ -353,7 +353,7 @@
                 $(lastli).before($(html))
                 arr.push(urlTxt)
                 localStorage.setItem('urlTxt', JSON.stringify(arr)) //将网址数组存进缓存
-            } else {
+            } else if (arr.indexOf(urlTxt) === 1) {
                 alert('此网址已经存在了！')
             }
         })
