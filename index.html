@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport"
         content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title></title>
+    <title>前端导航网站</title>
     <style type="text/css">
         * {
             margin: 0px;
@@ -245,7 +245,7 @@
         </div>
         <div class="list">
             <ul>
-                <li><a href="//baidu.com">
+                <!-- <li><a href="//baidu.com">
                         <div class="upper-letter"><span>B</span></div>
                         <div class="net">
                             <font>baidu.com</font>
@@ -299,7 +299,7 @@
                         <div class="net">
                             <font>taobao.com</font>
                         </div>
-                    </a><em>X</em></li>
+                    </a><em>X</em></li> -->
                 <li class="last">
                     <div class="upper-letter">
                         <span>
@@ -326,16 +326,17 @@
         let srchTxt = document.querySelector('.srch > .txt > input');
         let srchBtn = document.querySelector('.srch > .btn > button');
         let lastli = document.querySelector('.list li.last');
-        let arr = []
+        let arr = ['baidu.com', 'google.com', 'bilibili.com', 'zhihu.com', 'segmentfault.com', 'developer.mozilla.org/zh-CN/', 'juejin.im', 'time.geekbang.org', 'taobao.com']
         if (urlLS) {
-            arr = JSON.parse(urlLS)
+            arr = arr.concat(JSON.parse(urlLS))
+        }
+        defaultItems()
+        function defaultItems() {
             for (let i = 0; i < arr.length; i++) {
                 let html = setLiHtml(arr[i])
                 $(lastli).before($(html))
             }
-
         }
-
         srchBtn.addEventListener('click', () => {
             console.log(srchTxt.value)
             location.href = '//www.baidu.com/s?wd=' + srchTxt.value
@@ -347,11 +348,13 @@
         })
         lastli.addEventListener('click', () => {
             let urlTxt = prompt('请输入您要添加的网址', '')
-            if (urlTxt) {
+            if (urlTxt && arr.indexOf(urlTxt) === -1) {
                 let html = setLiHtml(urlTxt)
                 $(lastli).before($(html))
                 arr.push(urlTxt)
                 localStorage.setItem('urlTxt', JSON.stringify(arr)) //将网址数组存进缓存
+            } else {
+                alert('此网址已经存在了！')
             }
         })
         //点击X
