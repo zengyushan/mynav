@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport"
+        content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .clear {
+            margin: 0px;
+            padding: 0px;
+            clear: both;
+        }
+
+        .clear-fix {
+            *overflow: hidden;
+            *zoom: 1;
+        }
+
+        .clear-fix:after {
+            display: table;
+            content: "";
+            width: 0;
+            clear: both;
+        }
+
+        html,
+        div,
+        dl,
+        dt,
+        dd,
+        ul,
+        h1,
+        h2,
+        h3,
+        pre,
+        form,
+        label,
+        fieldset,
+        textarea,
+        p,
+        blockquote,
+        table,
+        input {
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+            font: 14px Helvetica Neue, Helvetica, PingFang SC, \5FAE\8F6F\96C5\9ED1, Tahoma, Arial, sans-serif;
+        }
+
+        fieldset,
+        img {
+            border: 0
+        }
+
+        code,
+        em,
+        var,
+        i,
+        b {
+            font-style: normal;
+        }
+
+        ul {
+            list-style: none
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        header {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            /*height:50px; line-height:50px; */
+            z-index: 10;
+        }
+
+        .clearfloat {
+            height: 0;
+            font-size: 1px;
+            clear: both;
+            line-height: 0;
+        }
+
+        a {
+            color: #000;
+        }
+
+        span:hover {
+            text-decoration: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #eee;
+        }
+
+        .srch {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .srch>.txt {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .srch>.txt>input {
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            width: 100%;
+            height: 40px;
+            padding: 0 6px;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #323232;
+        }
+
+        .srch>.btn>button {
+            width: 88px;
+            height: 40px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #0282B9;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .list {
+            padding: 0 20px;
+        }
+
+        .list ul {
+            display: flex;
+            /* justify-content: space-between; */
+            flex-wrap: wrap;
+            margin-right: -3%;
+        }
+
+        .list li {
+            position: relative;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            border-radius: 4px;
+            width: 47%;
+            height: 130px;
+            margin-right: 3%;
+            margin-bottom: 12px;
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        .list li em {
+            position: absolute;
+            right: 3px;
+            top: 4px;
+            font-size: 16px;
+            color: #323232;
+            display: none;
+            width: 25px;
+            height: 23px;
+            line-height: 23px;
+            text-align: center;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .list li:hover em {
+            display: inline-block;
+        }
+
+        .list .upper-letter {
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        .list .upper-letter span {
+            display: inline-block;
+            font-size: 64px;
+            width: 64px;
+            height: 64px;
+        }
+
+        .list .net {
+            padding: 12px 10px 0;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .list .net font {
+            font-size: 14px;
+            color: #323232;
+        }
+
+        @media screen and (min-width: 768px) {
+            .srch {
+                padding: 80px 0 50px;
+                width: 400px;
+                margin: 0 auto;
+            }
+
+            .list {
+                padding: 0 100px;
+            }
+
+            .list ul {
+                display: block;
+            }
+
+            .list li {
+                float: left;
+                width: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout-nav">
+        <div class="srch">
+            <div class="txt">
+                <input type="text" placeholder="请输入关键词">
+            </div>
+            <div class="btn">
+                <button>搜索</button>
+            </div>
+        </div>
+        <div class="list">
+            <ul>
+                <li class="last">
+                    <div class="upper-letter">
+                        <span>
+                            <svg t="1598617500850" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="2128" width="50" height="50">
+                                <path d="M577.088 0H448.96v448.512H0v128h448.96V1024h128.128V576.512H1024v-128H577.088z"
+                                    p-id="2129"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="net">
+                        <font>新增网站</font>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="mask" style="display: none;"></div>
+    <script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        let urlLS = localStorage.getItem('urlTxt');
+        let srchTxt = document.querySelector('.srch > .txt > input');
+        let srchBtn = document.querySelector('.srch > .btn > button');
+        let lastli = document.querySelector('.list li.last');
+        let arr = []
+        if (urlLS) {
+            arr = JSON.parse(urlLS)
+            for (let i = 0; i < arr.length; i++) {
+                let html = setLiHtml(arr[i])
+                $(lastli).before($(html))
+            }
+
+        }
+
+        srchBtn.addEventListener('click', () => {
+            console.log(srchTxt.value)
+            location.href = '//www.baidu.com/s?wd=' + srchTxt.value
+        })
+        document.onkeydown = ((e) => {
+            if (e.keyCode === 13 && srchTxt === document.activeElement) {
+                location.href = '//www.baidu.com/s?wd=' + srchTxt.value
+            }
+        })
+        lastli.addEventListener('click', () => {
+            let urlTxt = prompt('请输入您要添加的网址', '')
+            if (urlTxt) {
+                let html = setLiHtml(urlTxt)
+                $(lastli).before($(html))
+                arr.push(urlTxt)
+                localStorage.setItem('urlTxt', JSON.stringify(arr)) //将网址数组存进缓存
+            }
+        })
+        //点击X
+        $(document).on('click', '.list li em', function () {
+            let li = $(this).parent()
+            let url = li.find('a').attr('href').substring(2) //获取a标签的href，并截取url
+            console.log(url)
+            let newArr = []
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] !== url) {
+                    newArr.push(arr[i])
+                }
+            }
+            localStorage.setItem('urlTxt', JSON.stringify(newArr)) //将网址数组存进缓存
+            li.remove()
+        })
+        function setLiHtml(urlTxt) {
+            let html = ''
+            let firstLetter = urlTxt.substring(0, 1)
+            html += '<li>'
+            html += '<a href="//' + urlTxt + '">'
+            html += ' <div class="upper-letter">'
+            html += '<span>' + firstLetter.toUpperCase() + '</span>'
+            html += '</div>'
+            html += '<div class="net">'
+            html += '<font>' + urlTxt + '</font>'
+            html += '</div>'
+            html += '</a>'
+            html += '<em>X</em>'
+            html += '</li>'
+            return html
+        }
+
+
+    </script>
+</body>
+
+</html>
