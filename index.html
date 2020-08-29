@@ -223,6 +223,7 @@
 
             .list ul {
                 display: block;
+                overflow: hidden;
             }
 
             .list li {
@@ -362,6 +363,20 @@
         document.onkeydown = ((e) => {
             if (e.keyCode === 13 && srchTxt === document.activeElement) {
                 location.href = '//www.baidu.com/s?wd=' + srchTxt.value
+            }
+            let letters = document.querySelectorAll('.list .upper-letter span')
+            console.log(letters)
+            for (let i = 0; i < letters.length; i++) {
+                let txt = letters[i].textContent
+                console.log(txt.toLowerCase())
+                console.log(typeof e.key)
+                if (txt.toLowerCase() === e.key) {
+                    let url = $(letters[i]).parent().parent().find('.net font').text()
+                    console.log(url)
+                    location.href = '//' + url
+                    break
+                }
+
             }
         })
         lastli.addEventListener('click', () => {
