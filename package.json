@@ -1,5 +1,14 @@
 {
+  "scripts": {
+    "build": "rm -rf dist && parcel build src/index.html --public-url ./"
+  },
   "devDependencies": {
     "cssnano": "^4.1.10"
-  }
+  },
+  "name": "mynav",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:zengyushan/mynav.git",
+  "author": "zengyushan <zyszys805@139.com>",
+  "license": "MIT"
 }
